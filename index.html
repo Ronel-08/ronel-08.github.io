@@ -7,46 +7,73 @@
   <style>
     /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background-color: #0d1b2a;
-      color: #e0e1dd;
+      background-color: #06141B; /* Darkest Navy for background */
+      color: #9BA8AB; /* Light Gray for paragraph text */
       line-height: 1.6;
     }
 
     header {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #1b263b;
-      color: #fff;
+      padding: 3rem 1rem;
+      background: #11212D; /* Second darkest for header background */
+    }
+    
+    /* Header Layout Styles */
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: auto;
+        flex-wrap: wrap; /* Allows items to stack on smaller screens */
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid #4A5C6A; /* Accent color from palette */
+        object-fit: cover; /* Prevents image from stretching */
+    }
+
+    .header-text {
+        text-align: left;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      color: #CCD0CF; /* Lightest color for main headings */
     }
 
     header p {
       font-size: 1.2rem;
       margin-top: 0.5rem;
+      color: #9BA8AB;
+      max-width: 600px; /* Limit width of subtitle */
     }
 
     nav {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      background: #1b263b;
+      gap: 1.5rem;
+      background: #11212D; /* Second darkest for nav background */
       padding: 0.5rem;
+      border-top: 1px solid #253745; /* Mid-dark border */
     }
 
     nav a {
-      color: #00b4d8;
+      color: #4A5C6A; /* Accent color for links */
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #CCD0CF; /* Lightest color on hover */
+      text-decoration: none;
     }
 
     section {
@@ -56,36 +83,44 @@
     }
 
     h2 {
-      border-bottom: 2px solid #00b4d8;
+      color: #CCD0CF; /* Lightest color for section headings */
+      border-bottom: 2px solid #253745; /* Mid-dark border */
       padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     /* Certification Layout */
     .cert-group {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .cert-group h3 {
-      color: #90e0ef;
-      margin-bottom: 1rem;
+      color: #4A5C6A; /* Accent color for subheadings */
+      margin-bottom: 1.5rem;
+      font-weight: 500;
     }
 
     .cert-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 20px;
     }
 
     .card {
-      background: #1b263b;
-      border-radius: 10px;
-      padding: 1rem;
+      background: #11212D; /* Second darkest for cards */
+      border-radius: 8px;
+      padding: 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
     }
 
     .card-info {
@@ -94,15 +129,16 @@
 
     .card-info h4 {
       margin: 0;
-      color: #00b4d8;
+      color: #CCD0CF; /* Lightest color for card titles */
     }
 
     .card-info p {
       margin: 5px 0;
+      font-size: 0.9rem;
     }
 
     .card-info a {
-      color: #90e0ef;
+      color: #4A5C6A; /* Accent color for links in cards */
       text-decoration: none;
       font-size: 0.9rem;
     }
@@ -115,63 +151,58 @@
       max-width: 120px;
       border-radius: 8px;
       flex-shrink: 0;
-      cursor: pointer; /* Indicates the image is clickable */
+      cursor: pointer;
       transition: transform 0.2s ease-in-out;
     }
 
     .card img:hover {
-        transform: scale(1.05); /* Slight zoom on hover */
+        transform: scale(1.05);
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #1b263b;
+      padding: 1.5rem;
+      background: #06141B; /* Darkest Navy for footer */
       margin-top: 2rem;
-      color: #778da9;
+      color: #9BA8AB;
+      font-size: 0.9rem;
     }
 
     /* --MODAL STYLES START-- */
-
-    /* The Modal (background) */
     .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1000; /* Sit on top */
+      display: none;
+      position: fixed;
+      z-index: 1000;
       left: 0;
       top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(6, 20, 27, 0.9); /* Darkest Navy transparent background */
       padding: 20px;
       box-sizing: border-box;
     }
 
-    /* Modal Content (the image) */
     .modal-content {
       margin: auto;
       display: block;
       width: 80%;
-      max-width: 800px; /* Max width */
+      max-width: 800px;
       border-radius: 10px;
-      /* Add animation */
       animation-name: zoom;
       animation-duration: 0.4s;
     }
 
-    /* Animation */
     @keyframes zoom {
       from {transform: scale(0.5); opacity: 0;}
       to {transform: scale(1); opacity: 1;}
     }
 
-    /* The Close Button */
     .close {
       position: absolute;
       top: 15px;
       right: 35px;
-      color: #f1f1f1;
+      color: #4A5C6A; /* Accent color for close button */
       font-size: 40px;
       font-weight: bold;
       transition: 0.3s;
@@ -179,19 +210,23 @@
 
     .close:hover,
     .close:focus {
-      color: #bbb;
+      color: #CCD0CF; /* Lightest color on hover */
       text-decoration: none;
       cursor: pointer;
     }
-
     /* --MODAL STYLES END-- */
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Ronel Abraham Mathew</h1>
-    <p>First-Year B.Tech CSE at Karunya University | Aspiring Software Engineer | Web Development & AI Enthusiast</p>
+    <div class="header-content">
+        <img src="photo.png" alt="A photo of Ronel Abraham Mathew" class="profile-photo">
+        <div class="header-text">
+            <h1>Ronel Abraham Mathew</h1>
+            <p>First-Year B.Tech CSE at Karunya University | Aspiring Software Engineer | Web Development & AI Enthusiast</p>
+        </div>
+    </div>
   </header>
 
   <nav>
@@ -207,7 +242,6 @@
   <section id="certifications">
     <h2>Certifications</h2>
 
-    <!-- Oracle -->
     <div class="cert-group">
       <h3>Oracle</h3>
       <div class="cert-cards">
@@ -223,7 +257,6 @@
       </div>
     </div>
 
-    <!-- OpenCV -->
     <div class="cert-group">
       <h3>OpenCV Learn Roadmap</h3>
       <div class="cert-cards">
@@ -247,8 +280,7 @@
         </div>
       </div>
     </div>
-
-    <!-- University of Helsinki -->
+    
     <div class="cert-group">
         <h3>University of Helsinki</h3>
         <div class="cert-cards">
@@ -264,7 +296,6 @@
         </div>
     </div>
 
-    <!-- Kaggle -->
     <div class="cert-group">
       <h3>Kaggle Learn Roadmap</h3>
       <div class="cert-cards">
@@ -298,7 +329,6 @@
       </div>
     </div>
 
-    <!-- LinkedIn -->
     <div class="cert-group">
         <h3>LinkedIn</h3>
         <div class="cert-cards">
@@ -319,7 +349,6 @@
     <p>© 2025 Ronel Abraham Mathew. All Rights Reserved.</p>
   </footer>
 
-  <!-- The Modal for Image Popup -->
   <div id="imageModal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modalImage">
