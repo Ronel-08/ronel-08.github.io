@@ -12,14 +12,31 @@
       background-color: #06141B; /* Darkest Navy for background */
       color: #9BA8AB; /* Light Gray for paragraph text */
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* General transition for interactive elements */
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Page Load Animation */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-load {
+        opacity: 0; /* Start hidden */
+        animation: fadeInUp 0.8s ease-out forwards;
     }
 
     header {
       padding: 3rem 1rem;
-      background: #11212D; /* Second darkest for header background */
+      background: #11212D;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     
-    /* Header Layout Styles */
     .header-content {
         display: flex;
         align-items: center;
@@ -27,201 +44,270 @@
         gap: 2.5rem;
         max-width: 1200px;
         margin: auto;
-        flex-wrap: wrap; /* Allows items to stack on smaller screens */
+        flex-wrap: wrap;
     }
 
     .profile-photo {
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        border: 3px solid #4A5C6A; /* Accent color from palette */
-        object-fit: cover; /* Prevents image from stretching */
+        border: 3px solid #4A5C6A;
+        object-fit: cover;
+        box-shadow: 0 0 10px rgba(74, 92, 106, 0.5);
+        animation: pulseBorder 2s infinite alternate;
     }
 
-    .header-text {
-        text-align: left;
+    @keyframes pulseBorder {
+        from { border-color: #4A5C6A; box-shadow: 0 0 10px rgba(74, 92, 106, 0.5); }
+        to { border-color: #9BA8AB; box-shadow: 0 0 20px rgba(155, 168, 171, 0.7); }
     }
 
+    .header-text { text-align: left; }
     header h1 {
       margin: 0;
       font-size: 2.8rem;
-      color: #CCD0CF; /* Lightest color for main headings */
+      color: #CCD0CF;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
-
     header p {
       font-size: 1.2rem;
       margin-top: 0.5rem;
       color: #9BA8AB;
-      max-width: 600px; /* Limit width of subtitle */
+      max-width: 600px;
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
-      background: #11212D; /* Second darkest for nav background */
-      padding: 0.5rem;
-      border-top: 1px solid #253745; /* Mid-dark border */
+      background: #11212D;
+      padding: 0.8rem;
+      border-top: 1px solid #253745;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav a {
-      color: #4A5C6A; /* Accent color for links */
+      color: #4A5C6A;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
     }
 
     nav a:hover {
-      color: #CCD0CF; /* Lightest color on hover */
-      text-decoration: none;
+      color: #CCD0CF;
+      background-color: #253745;
+      transform: translateY(-2px);
     }
 
     section {
-      padding: 2rem;
+      padding: 3rem 2rem;
       max-width: 1200px;
       margin: auto;
     }
 
     h2 {
-      color: #CCD0CF; /* Lightest color for section headings */
-      border-bottom: 2px solid #253745; /* Mid-dark border */
+      color: #CCD0CF;
+      border-bottom: 2px solid #253745;
       padding-bottom: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0%;
+        height: 2px;
+        background-color: #4A5C6A;
+        transition: width 0.4s ease-out;
     }
 
-    /* Certification Layout */
-    .cert-group {
-      margin-bottom: 2.5rem;
+    h2:hover::after { width: 100%; }
+
+    .cert-group, .project-group {
+      margin-bottom: 3rem;
     }
 
-    .cert-group h3 {
-      color: #4A5C6A; /* Accent color for subheadings */
+    h3 {
+      color: #4A5C6A;
       margin-bottom: 1.5rem;
       font-weight: 500;
+      font-size: 1.8rem;
+      border-left: 4px solid #4A5C6A;
+      padding-left: 1rem;
     }
 
     .cert-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
 
     .card {
-      background: #11212D; /* Second darkest for cards */
+      background: #11212D;
       border-radius: 8px;
+      display: flex;
+      border: 1px solid rgba(74, 92, 106, 0.2);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden; /* Ensures child elements conform to border-radius */
+    }
+
+    .card:hover {
+        transform: translateY(-7px) scale(1.05);
+        box-shadow: 0px 12px 28px rgba(0,0,0,0.7);
+        border-color: #4A5C6A;
+        z-index: 10;
+    }
+    
+    /* Styles for Certification Cards */
+    .cert-card-content {
       padding: 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
+      width: 100%;
     }
 
-    .card-info {
-      flex: 2;
-    }
-
+    .card-info { flex: 2; }
     .card-info h4 {
       margin: 0;
-      color: #CCD0CF; /* Lightest color for card titles */
+      color: #CCD0CF;
+      font-size: 1.1rem;
     }
-
     .card-info p {
       margin: 5px 0;
       font-size: 0.9rem;
     }
-
     .card-info a {
-      color: #4A5C6A; /* Accent color for links in cards */
+      color: #4A5C6A;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      font-weight: bold;
+      display: inline-block;
     }
-
     .card-info a:hover {
       text-decoration: underline;
+      color: #CCD0CF;
+      transform: translateX(5px);
     }
-
-    .card img {
+    .card img.cert-image {
       max-width: 120px;
       border-radius: 8px;
       flex-shrink: 0;
       cursor: pointer;
-      transition: transform 0.2s ease-in-out;
+    }
+    .card img.cert-image:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(74, 92, 106, 0.7);
     }
 
-    .card img:hover {
-        transform: scale(1.05);
+    /* --- NEW PROJECT CARD STYLES --- */
+    .project-link {
+        text-decoration: none;
+        color: inherit;
+        display: block; /* Makes the link fill the grid area */
+    }
+    .project-card {
+        flex-direction: column;
+        justify-content: space-between; /* Pushes tech tags to the bottom */
+    }
+    .project-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .project-content {
+        padding: 1.5rem;
+        flex-grow: 1; /* Allows content to fill available space */
+        display: flex;
+        flex-direction: column;
+    }
+    .project-content h4 {
+        margin: 0 0 0.5rem 0;
+        color: #CCD0CF;
+        font-size: 1.2rem;
+    }
+    .project-content p {
+        margin: 0 0 1rem 0;
+        font-size: 0.95rem;
+        flex-grow: 1; /* Pushes tags down */
+    }
+    .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .tech-tag {
+        background-color: #253745;
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #9BA8AB;
     }
 
     footer {
       text-align: center;
       padding: 1.5rem;
-      background: #06141B; /* Darkest Navy for footer */
-      margin-top: 2rem;
+      background: #06141B;
+      margin-top: 3rem;
       color: #9BA8AB;
       font-size: 0.9rem;
+      border-top: 1px solid #253745;
     }
 
-    /* --MODAL STYLES START-- */
     .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(6, 20, 27, 0.9); /* Darkest Navy transparent background */
-      padding: 20px;
-      box-sizing: border-box;
+      display: none; position: fixed; z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      overflow: auto; background-color: rgba(6, 20, 27, 0.95);
+      padding: 20px; box-sizing: border-box;
+      animation: fadeIn 0.3s ease-out;
     }
-
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .modal-content {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 800px;
-      border-radius: 10px;
-      animation-name: zoom;
-      animation-duration: 0.4s;
+      margin: auto; display: block; width: 80%;
+      max-width: 800px; border-radius: 10px;
+      animation-name: zoom; animation-duration: 0.4s;
     }
-
-    @keyframes zoom {
-      from {transform: scale(0.5); opacity: 0;}
-      to {transform: scale(1); opacity: 1;}
-    }
-
+    @keyframes zoom { from {transform: scale(0.5); opacity: 0;} to {transform: scale(1); opacity: 1;} }
     .close {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #4A5C6A; /* Accent color for close button */
-      font-size: 40px;
-      font-weight: bold;
-      transition: 0.3s;
+      position: absolute; top: 15px; right: 35px;
+      color: #4A5C6A; font-size: 40px; font-weight: bold;
+      cursor: pointer; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .close:hover, .close:focus {
+      color: #CCD0CF;
+      transform: scale(1.1) rotate(5deg);
     }
 
-    .close:hover,
-    .close:focus {
-      color: #CCD0CF; /* Lightest color on hover */
-      text-decoration: none;
-      cursor: pointer;
+    @media (max-width: 768px) {
+        .header-content, .card.cert-card-content { flex-direction: column; text-align: center; }
+        .header-text { text-align: center; }
+        header h1 { font-size: 2.2rem; }
+        header p { font-size: 1rem; }
+        nav { flex-wrap: wrap; padding: 1rem 0.5rem; gap: 1rem; }
+        nav a { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+        .cert-cards { grid-template-columns: 1fr; }
+        .cert-card-content { gap: 1.5rem; }
+        .card img.cert-image { order: -1; }
+        .card-info { text-align: center; }
+        .modal-content { width: 95%; }
     }
-    /* --MODAL STYLES END-- */
   </style>
 </head>
 <body>
 
   <header>
-    <div class="header-content">
-        <img src="photo.png" alt="A photo of Ronel Abraham Mathew" class="profile-photo">
+    <div class="header-content animate-on-load" style="animation-delay: 0.2s;">
+        <img src="images/photo.png" alt="A photo of Ronel Abraham Mathew" class="profile-photo">
         <div class="header-text">
             <h1>Ronel Abraham Mathew</h1>
             <p>First-Year B.Tech CSE at Karunya University | Aspiring Software Engineer | Web Development & AI Enthusiast</p>
@@ -229,30 +315,101 @@
     </div>
   </header>
 
-  <nav>
+  <nav class="animate-on-load" style="animation-delay: 0.4s;">
     <a href="#projects">Projects</a>
     <a href="#certifications">Certifications</a>
   </nav>
 
-  <section id="projects">
+  <!-- === PROJECTS SECTION UPDATED === -->
+  <section id="projects" class="animate-on-load" style="animation-delay: 0.6s;">
     <h2>Projects</h2>
-    <p>Coming Soon....</p>
-  </section>
+    <div class="cert-cards">
 
-  <section id="certifications">
+      <!-- Project 1 -->
+      <a href="project1.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+One" alt="Project One Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title One</h4>
+            <p>A brief but engaging description of the first project, outlining its main features and what problem it solves.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="project2.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Two" alt="Project Two Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title Two</h4>
+            <p>This project uses advanced frameworks to deliver a seamless user experience. Here's a little bit more detail about it.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">API</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="project3.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Three" alt="Project Three Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title Three</h4>
+            <p>An exploration into machine learning and data visualization, creating an interactive and informative web application.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">D3.js</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="project4.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Four" alt="Project Four Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title Four</h4>
+            <p>A full-stack application with a database, authentication, and a clean, responsive user interface.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">TailwindCSS</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+  <!-- === END OF PROJECTS SECTION === -->
+
+
+  <section id="certifications" class="animate-on-load" style="animation-delay: 0.8s;">
     <h2>Certifications</h2>
 
     <div class="cert-group">
       <h3>Oracle</h3>
       <div class="cert-cards">
         <div class="card">
-          <div class="card-info">
-            <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
-            <p><strong>Issuer:</strong> Oracle</p>
-            <p><strong>Date:</strong> 26 Aug 2025</p>
-            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=FA63D378E204D24935C10F78C5E82CAA40CF468F1BA324717F22C4EDF9D8B74E" target="_blank">View Credential</a>
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
+              <p><strong>Issuer:</strong> Oracle</p>
+              <p><strong>Date:</strong> 26 Aug 2025</p>
+              <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=FA63D378E204D24935C10F78C5E82CAA40CF468F1BA324717F22C4EDF9D8B74E" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/oracle.jpg" alt="Oracle AI Foundations">
           </div>
-          <img class="cert-image" src="certs/oracle.jpg" alt="Oracle AI Foundations">
         </div>
       </div>
     </div>
@@ -261,22 +418,26 @@
       <h3>OpenCV Learn Roadmap</h3>
       <div class="cert-cards">
         <div class="card">
-          <div class="card-info">
-            <h4>OpenCV Bootcamp</h4>
-            <p><strong>Issuer:</strong> OpenCV</p>
-            <p><strong>Date:</strong> 31 Aug 2025</p>
-            <a href="https://courses.opencv.org/certificates/4a030babcfc444da991328c2ec2fd79e?latest62" target="_blank">View Credential</a>
+         <div class="cert-card-content">
+            <div class="card-info">
+              <h4>OpenCV Bootcamp</h4>
+              <p><strong>Issuer:</strong> OpenCV</p>
+              <p><strong>Date:</strong> 31 Aug 2025</p>
+              <a href="https://courses.opencv.org/certificates/4a030babcfc444da991328c2ec2fd79e?latest62" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/opencv-bootcamp.jpg" alt="OpenCV Bootcamp">
           </div>
-          <img class="cert-image" src="certs/opencv-bootcamp.jpg" alt="OpenCV Bootcamp">
         </div>
         <div class="card">
-          <div class="card-info">
-            <h4>Python for Beginners</h4>
-            <p><strong>Issuer:</strong> OpenCV</p>
-            <p><strong>Date:</strong> 31 Aug 2025</p>
-            <a href="https://courses.opencv.org/certificates/6a4ca18eb2bb4d6da41f471a9bc8b27b?latest93" target="_blank">View Credential</a>
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Python for Beginners</h4>
+              <p><strong>Issuer:</strong> OpenCV</p>
+              <p><strong>Date:</strong> 31 Aug 2025</p>
+              <a href="https://courses.opencv.org/certificates/6a4ca18eb2bb4d6da41f471a9bc8b27b?latest93" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/opencv-python.jpg" alt="OpenCV Python">
           </div>
-          <img class="cert-image" src="certs/opencv-python.jpg" alt="OpenCV Python">
         </div>
       </div>
     </div>
@@ -285,6 +446,7 @@
         <h3>University of Helsinki</h3>
         <div class="cert-cards">
             <div class="card">
+              <div class="cert-card-content">
                 <div class="card-info">
                     <h4>Introduction to Artificial Intelligence</h4>
                     <p><strong>Issuer:</strong> University of Helsinki</p>
@@ -292,6 +454,7 @@
                     <a href="https://certificates.mooc.fi/validate/pz5k5epwti" target="_blank">View Credential</a>
                 </div>
                 <img class="cert-image" src="certs/helsinki-ai.png" alt="AI by Helsinki">
+              </div>
             </div>
         </div>
     </div>
@@ -300,31 +463,37 @@
       <h3>Kaggle Learn Roadmap</h3>
       <div class="cert-cards">
         <div class="card">
-          <div class="card-info">
-            <h4>Python</h4>
-            <p><strong>Issuer:</strong> Kaggle</p>
-            <p><strong>Date:</strong> 27 Aug 2025</p>
-            <a href="https://www.kaggle.com/learn/certification/ronelm/python" target="_blank">View Credential</a>
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Python</h4>
+              <p><strong>Issuer:</strong> Kaggle</p>
+              <p><strong>Date:</strong> 27 Aug 2025</p>
+              <a href="https://www.kaggle.com/learn/certification/ronelm/python" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/kaggle-python.png" alt="Kaggle Python">
           </div>
-          <img class="cert-image" src="certs/kaggle-python.png" alt="Kaggle Python">
         </div>
         <div class="card">
-          <div class="card-info">
-            <h4>Intro to Machine Learning</h4>
-            <p><strong>Issuer:</strong> Kaggle</p>
-            <p><strong>Date:</strong> 27 Aug 2025</p>
-            <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-machine-learning" target="_blank">View Credential</a>
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Intro to Machine Learning</h4>
+              <p><strong>Issuer:</strong> Kaggle</p>
+              <p><strong>Date:</strong> 27 Aug 2025</p>
+              <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-machine-learning" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/kaggle-ml.png" alt="Kaggle ML">
           </div>
-          <img class="cert-image" src="certs/kaggle-ml.png" alt="Kaggle ML">
         </div>
         <div class="card">
-          <div class="card-info">
-            <h4>Intro to Programming</h4>
-            <p><strong>Issuer:</strong> Kaggle</p>
-            <p><strong>Date:</strong> 27 Aug 2025</p>
-            <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-programming" target="_blank">View Credential</a>
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Intro to Programming</h4>
+              <p><strong>Issuer:</strong> Kaggle</p>
+              <p><strong>Date:</strong> 27 Aug 2025</p>
+              <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-programming" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/kaggle-programming.png" alt="Kaggle Programming">
           </div>
-          <img class="cert-image" src="certs/kaggle-programming.png" alt="Kaggle Programming">
         </div>
       </div>
     </div>
@@ -333,6 +502,7 @@
         <h3>LinkedIn</h3>
         <div class="cert-cards">
             <div class="card">
+              <div class="cert-card-content">
                 <div class="card-info">
                     <h4>Introduction to Artificial Intelligence</h4>
                     <p><strong>Issuer:</strong> LinkedIn</p>
@@ -340,6 +510,7 @@
                     <a href="https://www.linkedin.com/learning/certificates/f9e6d04ff39e6d952a9914034ea484cf2ed8b4ac64f42ba7a337e66f8a0a2ded" target="_blank">View Credential</a>
                 </div>
                 <img class="cert-image" src="certs/linkedin-ai.png" alt="LinkedIn AI">
+              </div>
             </div>
         </div>
     </div>
@@ -355,33 +526,25 @@
   </div>
 
   <script>
-    // Get the modal and its components
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
     const closeBtn = document.getElementsByClassName("close")[0];
-
-    // Get all images with the class 'cert-image'
     const images = document.getElementsByClassName("cert-image");
 
-    // Loop through all images and add the click event
     for (let i = 0; i < images.length; i++) {
       images[i].onclick = function() {
         modal.style.display = "block";
-        modalImg.src = this.src; // Use the same src for the modal image
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        modalImg.src = this.src;
+        document.body.style.overflow = 'hidden';
       }
     }
 
-    // Function to close the modal
     function closeModal() {
       modal.style.display = "none";
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
+      document.body.style.overflow = 'auto';
     }
 
-    // When the user clicks on <span> (x), close the modal
     closeBtn.onclick = closeModal;
-
-    // When the user clicks anywhere outside of the image, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         closeModal();
