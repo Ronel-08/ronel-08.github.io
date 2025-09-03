@@ -1,451 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronel Abraham Mathew - Portfolio</title>
-  <style>
-    /* Global Styles */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background-color: #06141B; /* Darkest Navy for background */
-      color: #9BA8AB; /* Light Gray for paragraph text */
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronel Abraham Mathew - Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #06141B; /* Darkest Navy for background */
+      color: #9BA8AB; /* Light Gray for paragraph text */
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-    /* General transition for interactive elements */
-    * {
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
+    /* General transition for interactive elements */
+    * {
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
 
-    /* Page Load Animation */
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+    /* Page Load Animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-    .animate-on-load {
-        opacity: 0; /* Start hidden */
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
+    .animate-on-load {
+      opacity: 0; /* Start hidden */
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
 
-    header {
-      padding: 3rem 1rem;
-      background: #11212D;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    .header-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
-        max-width: 1200px;
-        margin: auto;
-        flex-wrap: wrap;
-    }
+    header {
+      padding: 3rem 1rem;
+      background: #11212D;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
 
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 3px solid #4A5C6A;
-        object-fit: cover;
-        box-shadow: 0 0 10px rgba(74, 92, 106, 0.5);
-        animation: pulseBorder 2s infinite alternate;
-    }
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #4A5C6A;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(74, 92, 106, 0.5);
+      animation: pulseBorder 2s infinite alternate;
+    }
 
-    @keyframes pulseBorder {
-        from { border-color: #4A5C6A; box-shadow: 0 0 10px rgba(74, 92, 106, 0.5); }
-        to { border-color: #9BA8AB; box-shadow: 0 0 20px rgba(155, 168, 171, 0.7); }
-    }
+    @keyframes pulseBorder {
+      from { border-color: #4A5C6A; box-shadow: 0 0 10px rgba(74, 92, 106, 0.5); }
+      to { border-color: #9BA8AB; box-shadow: 0 0 20px rgba(155, 168, 171, 0.7); }
+    }
 
-    .header-text { text-align: left; }
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #CCD0CF;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      color: #9BA8AB;
-      max-width: 600px;
-    }
+    .header-text { text-align: left; }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #CCD0CF;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #9BA8AB;
+      max-width: 600px;
+    }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      background: #11212D;
-      padding: 0.8rem;
-      border-top: 1px solid #253745;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background: #11212D;
+      padding: 0.8rem;
+      border-top: 1px solid #253745;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-    nav a {
-      color: #4A5C6A;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-    }
+    nav a {
+      color: #4A5C6A;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
 
-    nav a:hover {
-      color: #CCD0CF;
-      background-color: #253745;
-      transform: translateY(-2px);
-    }
+    nav a:hover {
+      color: #CCD0CF;
+      background-color: #253745;
+      transform: translateY(-2px);
+    }
 
-    section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-    h2 {
-      color: #CCD0CF;
-      border-bottom: 2px solid #253745;
-      padding-bottom: 0.5rem;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-    
-    h2::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 0%;
-        height: 2px;
-        background-color: #4A5C6A;
-        transition: width 0.4s ease-out;
-    }
+    h2 {
+      color: #CCD0CF;
+      border-bottom: 2px solid #253745;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background-color: #4A5C6A;
+      transition: width 0.4s ease-out;
+    }
 
-    h2:hover::after { width: 100%; }
+    h2:hover::after { width: 100%; }
 
-    .cert-group, .project-group {
-      margin-bottom: 3rem;
-    }
+    .cert-group, .project-group {
+      margin-bottom: 3rem;
+    }
 
-    h3 {
-      color: #4A5C6A;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-      font-size: 1.8rem;
-      border-left: 4px solid #4A5C6A;
-      padding-left: 1rem;
-    }
+    h3 {
+      color: #4A5C6A;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      font-size: 1.8rem;
+      border-left: 4px solid #4A5C6A;
+      padding-left: 1rem;
+    }
 
-    .cert-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-    }
+    .cert-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
 
-    .card {
-      background: #11212D;
-      border-radius: 8px;
-      display: flex;
-      border: 1px solid rgba(74, 92, 106, 0.2);
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden; /* Ensures child elements conform to border-radius */
-    }
+    .card {
+      background: #11212D;
+      border-radius: 8px;
+      display: flex;
+      border: 1px solid rgba(74, 92, 106, 0.2);
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden; /* Ensures child elements conform to border-radius */
+    }
 
-    .card:hover {
-        transform: translateY(-7px) scale(1.05);
-        box-shadow: 0px 12px 28px rgba(0,0,0,0.7);
-        border-color: #4A5C6A;
-        z-index: 10;
-    }
-    
-    /* Styles for Certification Cards */
-    .cert-card-content {
-      padding: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-    }
+    .card:hover {
+      transform: translateY(-7px) scale(1.05);
+      box-shadow: 0px 12px 28px rgba(0,0,0,0.7);
+      border-color: #4A5C6A;
+      z-index: 10;
+    }
+    
+    /* Styles for Certification Cards */
+    .cert-card-content {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
 
-    .card-info { flex: 2; }
-    .card-info h4 {
-      margin: 0;
-      color: #CCD0CF;
-      font-size: 1.1rem;
-    }
-    .card-info p {
-      margin: 5px 0;
-      font-size: 0.9rem;
-    }
-    .card-info a {
-      color: #4A5C6A;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: bold;
-      display: inline-block;
-    }
-    .card-info a:hover {
-      text-decoration: underline;
-      color: #CCD0CF;
-      transform: translateX(5px);
-    }
-    .card img.cert-image {
-      max-width: 120px;
-      border-radius: 8px;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-    .card img.cert-image:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px rgba(74, 92, 106, 0.7);
-    }
+    .card-info { flex: 2; }
+    .card-info h4 {
+      margin: 0;
+      color: #CCD0CF;
+      font-size: 1.1rem;
+    }
+    .card-info p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+    .card-info a {
+      color: #4A5C6A;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .card-info a:hover {
+      text-decoration: underline;
+      color: #CCD0CF;
+      transform: translateX(5px);
+    }
+    .card img.cert-image {
+      max-width: 120px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .card img.cert-image:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(74, 92, 106, 0.7);
+    }
 
-    /* --- NEW PROJECT CARD STYLES --- */
-    .project-link {
-        text-decoration: none;
-        color: inherit;
-        display: block; /* Makes the link fill the grid area */
-    }
-    .project-card {
-        flex-direction: column;
-        justify-content: space-between; /* Pushes tech tags to the bottom */
-    }
-    .project-image {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-    }
-    .project-content {
-        padding: 1.5rem;
-        flex-grow: 1; /* Allows content to fill available space */
-        display: flex;
-        flex-direction: column;
-    }
-    .project-content h4 {
-        margin: 0 0 0.5rem 0;
-        color: #CCD0CF;
-        font-size: 1.2rem;
-    }
-    .project-content p {
-        margin: 0 0 1rem 0;
-        font-size: 0.95rem;
-        flex-grow: 1; /* Pushes tags down */
-    }
-    .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-    .tech-tag {
-        background-color: #253745;
-        padding: 0.25rem 0.75rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        color: #9BA8AB;
-    }
+    /* --- NEW PROJECT CARD STYLES --- */
+    .project-link {
+      text-decoration: none;
+      color: inherit;
+      display: block; /* Makes the link fill the grid area */
+    }
+    .project-card {
+      flex-direction: column;
+      justify-content: space-between; /* Pushes tech tags to the bottom */
+    }
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .project-content {
+      padding: 1.5rem;
+      flex-grow: 1; /* Allows content to fill available space */
+      display: flex;
+      flex-direction: column;
+    }
+    .project-content h4 {
+      margin: 0 0 0.5rem 0;
+      color: #CCD0CF;
+      font-size: 1.2rem;
+    }
+    .project-content p {
+      margin: 0 0 1rem 0;
+      font-size: 0.95rem;
+      flex-grow: 1; /* Pushes tags down */
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tech-tag {
+      background-color: #253745;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #9BA8AB;
+    }
 
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #06141B;
-      margin-top: 3rem;
-      color: #9BA8AB;
-      font-size: 0.9rem;
-      border-top: 1px solid #253745;
-    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #06141B;
+      margin-top: 3rem;
+      color: #9BA8AB;
+      font-size: 0.9rem;
+      border-top: 1px solid #253745;
+    }
 
-    .modal {
-      display: none; position: fixed; z-index: 1000;
-      left: 0; top: 0; width: 100%; height: 100%;
-      overflow: auto; background-color: rgba(6, 20, 27, 0.95);
-      padding: 20px; box-sizing: border-box;
-      animation: fadeIn 0.3s ease-out;
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .modal-content {
-      margin: auto; display: block; width: 80%;
-      max-width: 800px; border-radius: 10px;
-      animation-name: zoom; animation-duration: 0.4s;
-    }
-    @keyframes zoom { from {transform: scale(0.5); opacity: 0;} to {transform: scale(1); opacity: 1;} }
-    .close {
-      position: absolute; top: 15px; right: 35px;
-      color: #4A5C6A; font-size: 40px; font-weight: bold;
-      cursor: pointer; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    }
-    .close:hover, .close:focus {
-      color: #CCD0CF;
-      transform: scale(1.1) rotate(5deg);
-    }
+    .modal {
+      display: none; position: fixed; z-index: 1000;
+      left: 0; top: 0; width: 100%; height: 100%;
+      overflow: auto; background-color: rgba(6, 20, 27, 0.95);
+      padding: 20px; box-sizing: border-box;
+      animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal-content {
+      margin: auto; display: block; width: 80%;
+      max-width: 800px; border-radius: 10px;
+      animation-name: zoom; animation-duration: 0.4s;
+    }
+    @keyframes zoom { from {transform: scale(0.5); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+    .close {
+      position: absolute; top: 15px; right: 35px;
+      color: #4A5C6A; font-size: 40px; font-weight: bold;
+      cursor: pointer; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .close:hover, .close:focus {
+      color: #CCD0CF;
+      transform: scale(1.1) rotate(5deg);
+    }
 
-    @media (max-width: 768px) {
-        .header-content, .card.cert-card-content { flex-direction: column; text-align: center; }
-        .header-text { text-align: center; }
-        header h1 { font-size: 2.2rem; }
-        header p { font-size: 1rem; }
-        nav { flex-wrap: wrap; padding: 1rem 0.5rem; gap: 1rem; }
-        nav a { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
-        .cert-cards { grid-template-columns: 1fr; }
-        .cert-card-content { gap: 1.5rem; }
-        .card img.cert-image { order: -1; }
-        .card-info { text-align: center; }
-        .modal-content { width: 95%; }
-    }
-  </style>
+    @media (max-width: 768px) {
+      .header-content, .card.cert-card-content { flex-direction: column; text-align: center; }
+      .header-text { text-align: center; }
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1rem; }
+      nav { flex-wrap: wrap; padding: 1rem 0.5rem; gap: 1rem; }
+      nav a { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+      .cert-cards { grid-template-columns: 1fr; }
+      .cert-card-content { gap: 1.5rem; }
+      .card img.cert-image { order: -1; }
+      .card-info { text-align: center; }
+      .modal-content { width: 95%; }
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-content animate-on-load" style="animation-delay: 0.2s;">
-        <img src="images/photo.png" alt="A photo of Ronel Abraham Mathew" class="profile-photo">
-        <div class="header-text">
-            <h1>Ronel Abraham Mathew</h1>
-            <p>First-Year B.Tech CSE at Karunya University | Aspiring Software Engineer | Web Development & AI Enthusiast</p>
-        </div>
-    </div>
-  </header>
+  <header>
+    <div class="header-content animate-on-load" style="animation-delay: 0.2s;">
+      <img src="images/photo.png" alt="A photo of Ronel Abraham Mathew" class="profile-photo">
+      <div class="header-text">
+        <h1>Ronel Abraham Mathew</h1>
+        <p>First-Year B.Tech CSE at Karunya University | Aspiring Software Engineer | Web Development & AI Enthusiast</p>
+      </div>
+    </div>
+  </header>
 
-  <nav class="animate-on-load" style="animation-delay: 0.4s;">
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-  </nav>
+  <nav class="animate-on-load" style="animation-delay: 0.4s;">
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+  </nav>
 
-    <section id="projects" class="animate-on-load" style="animation-delay: 0.6s;">
-    <h2>Projects</h2>
-    <div class="cert-cards">
+  <section id="projects" class="animate-on-load" style="animation-delay: 0.6s;">
+    <h2>Projects</h2>
+    <div class="cert-cards">
 
-            <a href="project1.html" class="project-link">
-        <div class="card project-card">
-          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+One" alt="Project One Thumbnail" class="project-image">
-          <div class="project-content">
-            <h4>Project Title One</h4>
-            <p>A brief but engaging description of the first project, outlining its main features and what problem it solves.</p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML5</span>
-              <span class="tech-tag">CSS3</span>
-              <span class="tech-tag">JavaScript</span>
-            </div>
-          </div>
-        </div>
-      </a>
+      <a href="project1.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+One" alt="Project One Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title One</h4>
+            <p>A brief but engaging description of the first project, outlining its main features and what problem it solves.</p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </a>
 
-            <a href="project2.html" class="project-link">
-        <div class="card project-card">
-          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Two" alt="Project Two Thumbnail" class="project-image">
-          <div class="project-content">
-            <h4>Project Title Two</h4>
-            <p>This project uses advanced frameworks to deliver a seamless user experience. Here's a little bit more detail about it.</p>
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">API</span>
-            </div>
-          </div>
-        </div>
-      </a>
+      <a href="project2.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Two" alt="Project Two Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title Two</h4>
+            <p>This project uses advanced frameworks to deliver a seamless user experience. Here's a little bit more detail about it.</p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">API</span>
+            </div>
+          </div>
+        </div>
+      </a>
 
-            <a href="project3.html" class="project-link">
-        <div class="card project-card">
-          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Three" alt="Project Three Thumbnail" class="project-image">
-          <div class="project-content">
-            <h4>Project Title Three</h4>
-            <p>An exploration into machine learning and data visualization, creating an interactive and informative web application.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Flask</span>
-            	<span class="tech-tag">D3.js</span>
-          	</div>
-          </div>
-        </div>
-      </a>
+      <a href="project3.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Three" alt="Project Three Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title Three</h4>
+            <p>An exploration into machine learning and data visualization, creating an interactive and informative web application.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">D3.js</span>
+            </div>
+          </div>
+        </div>
+      </a>
 
-            <a href="project4.html" class="project-link">
-        <div class="card project-card">
-          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Four" alt="Project Four Thumbnail" class="project-image">
-          <div class="project-content">
-            <h4>Project Title Four</h4>
-            <p>A full-stack application with a database, authentication, and a clean, responsive user interface.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Vue.js</span>
-            	<span class="tech-tag">Firebase</span>
-            	<span class="tech-tag">TailwindCSS</span>
-          	</div>
-          </div>
-        </div>
-    	</a>
+      <a href="project4.html" class="project-link">
+        <div class="card project-card">
+          <img src="https://placehold.co/600x400/11212D/9BA8AB?text=Project+Four" alt="Project Four Thumbnail" class="project-image">
+          <div class="project-content">
+            <h4>Project Title Four</h4>
+            <p>A full-stack application with a database, authentication, and a clean, responsive user interface.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">TailwindCSS</span>
+            </div>
+          </div>
+        </div>
+      </a>
 
-  	</div>
-  </section>
-    <section id="certifications" class="animate-on-load" style="animation-delay: 0.8s;">
-  	<h2>Certifications</h2>
+    </div>
+  </section>
+  <section id="certifications" class="animate-on-load" style="animation-delay: 0.8s;">
+    <h2>Certifications</h2>
 
-  	<div class="cert-group">
-  	  <h3>Oracle</h3>
-  	  <div class="cert-cards">
-  		<div class="card">
-  		  <div class="cert-card-content">
-  			<div class="card-info">
-  			  <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
-  			  <p><strong>Issuer:</strong> Oracle</p>
-  			  <p><strong>Date:</strong> 26 Aug 2025</p>
-  			  <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=FA63D378E204D24935C10F78C5E82CAA40CF468F1BA324717F22C4EDF9D8B74E" target="_blank">View Credential</a>
-  			</div>
-  			<img class="cert-image" src="certs/oracle.jpg" alt="Oracle AI Foundations">
-  		  </div>
-  		</div>
-  	  </div>
-  	</div>
-
-  	<div class="cert-group">
-  	  <h3>OpenCV</h3>
-  	  <div class="cert-cards">
-  		<div class="card">
-  		 <div class="cert-card-content">
-  			<div class="card-info">
-  			  <h4>OpenCV Bootcamp</h4>
-  			  <p><strong>Issuer:</strong> OpenCV</p>
-  			  <p><strong>Date:</strong> 31 Aug 2025</p>
-  			  <a href="https://courses.opencv.org/certificates/4a030babcfc444da991328c2ec2fd79e?latest62" target="_blank">View Credential</a>
-  			</div>
-  			<img class="cert-image" src="certs/opencv-bootcamp.jpg" alt="OpenCV Bootcamp">
-  		 </div>
-  		</div>
-  		<div class="card">
-  		  <div class="cert-card-content">
-  			<div class="card-info">
-  			  <h4>Python for Beginners</h4>
-  			  <p><strong>Issuer:</strong> OpenCV</p>
-  			  <p><strong>Date:</strong> 31 Aug 2025</p>
-  			  <a href="https://courses.opencv.org/certificates/6a4ca18eb2bb4d6da41f471a9bc8b27b?latest93" target="_blank">View Credential</a>
-  			</div>
-  			<img class="cert-image" src="certs/opencv-python.jpg" alt="OpenCV Python">
-  		  </div>
-  		</div>
-  	  </div>
-  	</div>
-  	
     <div class="cert-group">
-        <h3>New Issuer Name</h3>
+      <h3>Oracle</h3>
+      <div class="cert-cards">
+        <div class="card">
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
+              <p><strong>Issuer:</strong> Oracle</p>
+              <p><strong>Date:</strong> 26 Aug 2025</p>
+              <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=FA63D378E204D24935C10F78C5E82CAA40CF468F1BA324717F22C4EDF9D8B74E" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/oracle.jpg" alt="Oracle AI Foundations">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-group">
+      <h3>OpenCV</h3>
+      <div class="cert-cards">
+        <div class="card">
+         <div class="cert-card-content">
+            <div class="card-info">
+              <h4>OpenCV Bootcamp</h4>
+              <p><strong>Issuer:</strong> OpenCV</p>
+              <p><strong>Date:</strong> 31 Aug 2025</p>
+              <a href="https://courses.opencv.org/certificates/4a030babcfc444da991328c2ec2fd79e?latest62" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/opencv-bootcamp.jpg" alt="OpenCV Bootcamp">
+         </div>
+        </div>
+        <div class="card">
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Python for Beginners</h4>
+              <p><strong>Issuer:</strong> OpenCV</p>
+              <p><strong>Date:</strong> 31 Aug 2025</p>
+              <a href="https://courses.opencv.org/certificates/6a4ca18eb2bb4d6da41f471a9bc8b27b?latest93" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/opencv-python.jpg" alt="OpenCV Python">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cert-group">
+        <h3>Cisco</h3>
         <div class="cert-cards">
             <div class="card">
                 <div class="cert-card-content">
                     <div class="card-info">
-                        <h4>New Certificate Title 1</h4>
-                        <p><strong>Issuer:</strong> New Issuer Name</p>
-                        <p><strong>Date:</strong> DD Mon YYYY</p>
-                        <a href="#" target="_blank">View Credential</a>
+                        <h4>HTML Essentials</h4>
+                        <p><strong>Issuer:</strong> Cisco</p>
+                        <p><strong>Date:</strong> 02 Sep 2025</p>
+                        <a href="https://www.credly.com/badges/d88c7bc5-b074-42ec-9904-d838e729ebe4" target="_blank">View Credential</a>
                     </div>
-                    <img class="cert-image" src="certs/new-cert-1.png" alt="New Certificate 1">
+                    <img class="cert-image" src="certs/html_essentials.jpg" alt="Cisco HTML Essentials">
                 </div>
             </div>
             <div class="card">
@@ -456,120 +455,120 @@
                         <p><strong>Date:</strong> DD Mon YYYY</p>
                         <a href="#" target="_blank">View Credential</a>
                     </div>
-                    <img class="cert-image" src="certs/new-cert-2.png" alt="New Certificate 2">
+                    <img class="cert-image" src="certs/css_essentials.png" alt="Cisco CSS">
                 </div>
             </div>
         </div>
     </div>
-      	<div class="cert-group">
-  		<h3>University of Helsinki</h3>
-  		<div class="cert-cards">
-  			<div class="card">
-  			  <div class="cert-card-content">
-  				<div class="card-info">
-  					<h4>Introduction to Artificial Intelligence</h4>
-  					<p><strong>Issuer:</strong> University of Helsinki</p>
-  					<p><strong>Date:</strong> 27 Aug 2025</p>
-  					<a href="https://certificates.mooc.fi/validate/pz5k5epwti" target="_blank">View Credential</a>
-  				</div>
-  				<img class="cert-image" src="certs/helsinki-ai.png" alt="AI by Helsinki">
-  			  </div>
-  			</div>
-  		</div>
-  	</div>
+    <div class="cert-group">
+        <h3>University of Helsinki</h3>
+        <div class="cert-cards">
+            <div class="card">
+              <div class="cert-card-content">
+                <div class="card-info">
+                    <h4>Introduction to Artificial Intelligence</h4>
+                    <p><strong>Issuer:</strong> University of Helsinki</p>
+                    <p><strong>Date:</strong> 27 Aug 2025</p>
+                    <a href="https://certificates.mooc.fi/validate/pz5k5epwti" target="_blank">View Credential</a>
+                </div>
+                <img class="cert-image" src="certs/helsinki-ai.png" alt="AI by Helsinki">
+              </div>
+            </div>
+        </div>
+    </div>
 
-  	<div class="cert-group">
-  	  <h3>Kaggle</h3>
-  	  <div class="cert-cards">
-  		<div class="card">
-  		  <div class="cert-card-content">
-  			<div class="card-info">
-  			  <h4>Python</h4>
-  			  <p><strong>Issuer:</strong> Kaggle</p>
-  			  <p><strong>Date:</strong> 27 Aug 2025</p>
-  			  <a href="https://www.kaggle.com/learn/certification/ronelm/python" target="_blank">View Credential</a>
-  			</div>
-  			<img class="cert-image" src="certs/kaggle-python.png" alt="Kaggle Python">
-  		  </div>
-  		</div>
-  		<div class="card">
-  		  <div class="cert-card-content">
-  			<div class="card-info">
-  			  <h4>Intro to Machine Learning</h4>
-  			  <p><strong>Issuer:</strong> Kaggle</p>
-  			  <p><strong>Date:</strong> 27 Aug 2025</p>
-  			  <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-machine-learning" target="_blank">View Credential</a>
-  			</div>
-  			<img class="cert-image" src="certs/kaggle-ml.png" alt="Kaggle ML">
-  		  </div>
-  		</div>
-  		<div class="card">
-  		  <div class="cert-card-content">
-  			<div class="card-info">
-  			  <h4>Intro to Programming</h4>
-  			  <p><strong>Issuer:</strong> Kaggle</p>
-  			  <p><strong>Date:</strong> 27 Aug 2025</p>
-  			  <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-programming" target="_blank">View Credential</a>
-  			</div>
-  			<img class="cert-image" src="certs/kaggle-programming.png" alt="Kaggle Programming">
-  		  </div>
-  		</div>
-  	  </div>
-  	</div>
+    <div class="cert-group">
+      <h3>Kaggle</h3>
+      <div class="cert-cards">
+        <div class="card">
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Python</h4>
+              <p><strong>Issuer:</strong> Kaggle</p>
+              <p><strong>Date:</strong> 27 Aug 2025</p>
+              <a href="https://www.kaggle.com/learn/certification/ronelm/python" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/kaggle-python.png" alt="Kaggle Python">
+          </div>
+        </div>
+        <div class="card">
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Intro to Machine Learning</h4>
+              <p><strong>Issuer:</strong> Kaggle</p>
+              <p><strong>Date:</strong> 27 Aug 2025</p>
+              <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-machine-learning" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/kaggle-ml.png" alt="Kaggle ML">
+          </div>
+        </div>
+        <div class="card">
+          <div class="cert-card-content">
+            <div class="card-info">
+              <h4>Intro to Programming</h4>
+              <p><strong>Issuer:</strong> Kaggle</p>
+              <p><strong>Date:</strong> 27 Aug 2025</p>
+              <a href="https://www.kaggle.com/learn/certification/ronelm/intro-to-programming" target="_blank">View Credential</a>
+            </div>
+            <img class="cert-image" src="certs/kaggle-programming.png" alt="Kaggle Programming">
+          </div>
+        </div>
+      </div>
+    </div>
 
-  	<div class="cert-group">
-  		<h3>LinkedIn</h3>
-  		<div class="cert-cards">
-  			<div class="card">
-  			  <div class="cert-card-content">
-  				<div class="card-info">
-  					<h4>Introduction to Artificial Intelligence</h4>
-  					<p><strong>Issuer:</strong> LinkedIn</p>
-  					<p><strong>Date:</strong> 02 Aug 2025</p>
-  					<a href="https://www.linkedin.com/learning/certificates/f9e6d04ff39e6d952a9914034ea484cf2ed8b4ac64f42ba7a337e66f8a0a2ded" target="_blank">View Credential</a>
-  				</div>
-  				<img class="cert-image" src="certs/linkedin-ai.png" alt="LinkedIn AI">
-  			  </div>
-  			</div>
-  		</div>
-  	</div>
-  </section>
+    <div class="cert-group">
+        <h3>LinkedIn</h3>
+        <div class="cert-cards">
+            <div class="card">
+              <div class="cert-card-content">
+                <div class="card-info">
+                    <h4>Introduction to Artificial Intelligence</h4>
+                    <p><strong>Issuer:</strong> LinkedIn</p>
+                    <p><strong>Date:</strong> 02 Aug 2025</p>
+                    <a href="https://www.linkedin.com/learning/certificates/f9e6d04ff39e6d952a9914034ea484cf2ed8b4ac64f42ba7a337e66f8a0a2ded" target="_blank">View Credential</a>
+                </div>
+                <img class="cert-image" src="certs/linkedin-ai.png" alt="LinkedIn AI">
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 Ronel Abraham Mathew. All Rights Reserved.</p>
-  </footer>
+  <footer>
+    <p>© 2025 Ronel Abraham Mathew. All Rights Reserved.</p>
+  </footer>
 
-  <div id="imageModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
-  </div>
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
 
-  <script>
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    const closeBtn = document.getElementsByClassName("close")[0];
-    const images = document.getElementsByClassName("cert-image");
+  <script>
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const images = document.getElementsByClassName("cert-image");
 
-    for (let i = 0; i < images.length; i++) {
-      images[i].onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        document.body.style.overflow = 'hidden';
-      }
-    }
+    for (let i = 0; i < images.length; i++) {
+      images[i].onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        document.body.style.overflow = 'hidden';
+      }
+    }
 
-    function closeModal() {
-      modal.style.display = "none";
-      document.body.style.overflow = 'auto';
-    }
+    function closeModal() {
+      modal.style.display = "none";
+      document.body.style.overflow = 'auto';
+    }
 
-    closeBtn.onclick = closeModal;
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        closeModal();
-      }
-    }
-  </script>
+    closeBtn.onclick = closeModal;
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
 
 </body>
 </html>
